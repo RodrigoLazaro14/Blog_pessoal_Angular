@@ -13,11 +13,9 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     public auth: AuthService
   ) { }
-
   ngOnInit(): void {
   }
-
-  sair() {
+  sair(){
     this.router.navigate(['/login'])
     localStorage.clear()
   }

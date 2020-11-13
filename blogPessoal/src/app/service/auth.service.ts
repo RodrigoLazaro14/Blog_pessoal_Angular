@@ -7,37 +7,27 @@ import { UserLogin } from '../model/UserLogin';
   providedIn: 'root'
 })
 export class AuthService {
-
   constructor(private http: HttpClient) { }
-
-  logar(userLogin: UserLogin) {
+  logar(userLogin: UserLogin){
     return this.http.post('http://localhost:8080/usuarios/logar', userLogin)
-  } //localhost:9000 por conta do docker, caso o docker não esteja funcionando, acredito que use localhost:8080, será no caso a porta que está usando no sts
-
+  }
   cadastrar(user: User) {
     return this.http.post('http://localhost:8080/usuarios/cadastrar', user)
   }
-
-  btnSair() {
+  btnSair(){
     let ok = false
     let token = localStorage.getItem('token')
-
-    if(token != null) {
+    if(token != null){
       ok = true
     }
-
     return ok
   }
-
-  btnLogin() {
+  btnLogin(){
     let ok = false
     let token = localStorage.getItem('token')
-
-    if(token == null) {
-      ok = true
+    if(token==null){
+      ok=true
     }
-
     return ok
   }
-
 }
